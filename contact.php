@@ -7,40 +7,40 @@ use PHPMailer\PHPMailer\PHPMailer;
     if(isset($_POST['ok'])) 
 
     { 
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $subject = $_POST["subject"];
-    $message = $_POST["message"];
+    // $name = $_POST["name"];
+    // $email = $_POST["email"];
+    // $subject = $_POST["subject"];
+    // $message = $_POST["message"];
 
-    require_once "PHPMailer/PHPMailer.php";
-    require_once "PHPMailer/SMTP.php";
-    require_once "PHPMailer/Exception.php";
+    // require_once "PHPMailer/PHPMailer.php";
+    // require_once "PHPMailer/SMTP.php";
+    // require_once "PHPMailer/Exception.php";
 
-    $mail = new PHPMailer();
+    // $mail = new PHPMailer();
 
-    //SMTP Setting
-        $mail->isSMTP();
-        $mail->Host= "smtp.gmail.com";
-        $mail->SMTPAuth = true;
-        $mail->Username = "alireza.ko73@gmail.com";
-        $mail->Password = "@lirezakohandani0371054222";
-        $mail->Port = 465; //587
-        $mail->SMTPSecure = "ssl";//tls
+    // //SMTP Setting
+    //     $mail->isSMTP();
+    //     $mail->Host= "smtp.gmail.com";
+    //     $mail->SMTPAuth = true;
+    //     $mail->Username = "alireza.ko73@gmail.com";
+    //     $mail->Password = "@lirezakohandani0371054222";
+    //     $mail->Port = 465; //587
+    //     $mail->SMTPSecure = "ssl";//tls
 
-        //Email Setting
-        $mail->isHTML(true);
-        $mail->setFrom($email, $name);
-        $mail->addAddress("alirezakohandani377@yahoo.com");
-        $mail->Subject = $subject;
-        $mail->Body = $message;
+    //     //Email Setting
+    //     $mail->isHTML(true);
+    //     $mail->setFrom($email, $name);
+    //     $mail->addAddress("alirezakohandani377@yahoo.com");
+    //     $mail->Subject = $subject;
+    //     $mail->Body = $message;
 
-        if ($mail->send()) {
-            $response = "Email is sent!";
-        }
-        else {
-            $response = "Somthing is wrong: <br> <br>" . $mail->ErrorInfo;
-            exit(json_encode(array("response"=>$response)));
-        }
+    //     if ($mail->send()) {
+    //         $response = "Email is sent!";
+    //     }
+    //     else {
+    //         $response = "Somthing is wrong: <br> <br>" . $mail->ErrorInfo;
+    //         exit(json_encode(array("response"=>$response)));
+    //     }
 
 
    
@@ -61,28 +61,7 @@ use PHPMailer\PHPMailer\PHPMailer;
     
 
 ?>
-<!doctype html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>MeetMe Personal</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-        <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    <body>
+
         
         <!--================Header Menu Area =================-->
         <?php include 'header.php' ?>
@@ -109,13 +88,13 @@ use PHPMailer\PHPMailer\PHPMailer;
         <!--================Contact Area =================-->
         <section class="contact_area p_120">
             <div class="container">
-                <div id="mapBox" class="mapBox" 
-                    data-lat="40.701083" 
-                    data-lon="-74.1522848" 
-                    data-zoom="13" 
+                <div id="mapBox" class="mapBox"
+                    data-lat="35.771710423859446" 
+                    data-lon="51.49071968579233" 
+                    data-zoom="15" 
                     data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
-                    data-mlat="40.701083"
-                    data-mlon="-74.1522848">
+                    data-mlat="35.771710423859446"
+                    data-mlon="51.49071968579233">
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
@@ -162,7 +141,7 @@ use PHPMailer\PHPMailer\PHPMailer;
                         <form method="POST" enctype="multipart/form-data"> 
 
                             <div class="form-group">
-                            <lable>Username:</lable>
+                            <lable>Name:</lable>
                             <input type="text" class="form-control" placeholder="Enter name" name="name" required>
                             </div>
 
@@ -178,10 +157,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 
                             <div class="form-group">
                             <lable>message:</lable>
-                            <input type="text" class="form-control" placeholder="Enter message" name="message" required>
+                            <textarea class="form-control" placeholder="Enter message" name="message" rows="10" colms="10" required></textarea>
                             </div>
 
-                            <input type="submit" class="btn btn-primary" name="ok"/> 
+                            <input type="submit" class="btn btn-primary" name="ok" style="width: 100%"/> 
 
                         </form>
                     </div>
@@ -191,7 +170,6 @@ use PHPMailer\PHPMailer\PHPMailer;
         <!--================Contact Area =================-->
         
         <!--================Footer Area =================-->
-        <?php include 'footer.php' ?>                   
         <!--================End Footer Area =================-->
        
         <!--================Contact Success and Error message Area =================-->
