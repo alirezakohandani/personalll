@@ -1,4 +1,9 @@
 <?php
+ session_start();
+
+ $username = $_SESSION['username'];
+ $password = md5($_SESSION['password']);
+
  
 //login.php
 /**

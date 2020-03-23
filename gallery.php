@@ -23,9 +23,9 @@
         </section>
         <!--================End Home Banner Area =================-->
         
-        
-        <!-- Start Sample Area -->
-			<!-- <section class="sample-text-area">
+<!--         
+        Start Sample Area 
+			<section class="sample-text-area">
 				<div class="container">
 					<h3 class="text-heading title_color">Text Sample</h3>
 					<p class="sample-text">
@@ -33,7 +33,7 @@
 
 					</p>
 				</div>
-			</section> -->
+			</section>  -->
 			<!-- End Sample Area -->
 			<!-- Start Button -->
 			<!-- <section class="button-area">
@@ -283,62 +283,18 @@
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>  -->
 		     	 	<div class="section-top-border">
-						<h3 class="title_color">Image Gallery</h3>
+						<h3 style="text-align: center" class="title_color">Image Gallery</h3>
 						<div class="row gallery-item">
 							<div class="col-md-4">
-							<?php
-							include 'connect.php';
-
-
-							$select = $con->prepare("SELECT * FROM news");
-							$select->setFetchMode(PDO::FETCH_ASSOC);
-							$select->execute();
-							while ($data = $select->fetch()) {
-								$image = $data['image'];
-								$id = $data['id'];
-								echo "<img src='newsuploads/$image'>";
-								echo "<form method='POST'><input type='text' name='comment' placeholder='comment'><input type='submit' value='submit' name='ok'></form>";
-								$comment = $_POST["comment"];
-								if (isset($_POST["ok"])) {
-										
-									
-									
-										$sql = "INSERT INTO commen1 (commentt, id)VALUES ('$comment', '$id')";
-										if ($con->query($sql)) {
-											//   echo "<script type= 'text/javascript'>alert('New Record Inserted Successfully');</script>";
-												echo "yes";
-										}
-											else{
-											echo "<script type= 'text/javascript'>alert('Data not successfully Inserted.');</script>";
-											}
-									
-									
-									
-
-         					 $pdo = null;
-							}
-								?>
-								<p><?php 
-								include 'connect.php';
-								
-								}
-								$select = $con->prepare("SELECT * FROM comment");
-								$select->setFetchMode(PDO::FETCH_ASSOC);
-								$select->execute();
-								while ($data = $select->fetch()) {
-									echo $data['commenttext'] ,"<br>";
-								}
-								?></p>
-								
-							</form>
-							</div>
-							<!-- <div class="col-md-4">
-								<a href="img/elements/g2.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g2.jpg);"></div></a>
+							<a href="img/about.jpeg" class="img-gal"><div class="single-gallery-image" style="background: url(img/about.jpeg);"></div></a>
 							</div>
 							<div class="col-md-4">
-								<a href="img/elements/g3.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g3.jpg);"></div></a>
+								<a href="img/logoo.jpeg" class="img-gal"><div class="single-gallery-image" style="background: url(img/logoo.jpeg);"></div></a>
+							</div>
+							<div class="col-md-4">
+								<a href="img/image.jpeg" class="img-gal"><div class="single-gallery-image" style="background: url(img/image.jpeg);"></div></a>
 							</div>
 							<div class="col-md-6">
 								<a href="img/elements/g4.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g4.jpg);"></div></a>
@@ -354,7 +310,7 @@
 							</div>
 							<div class="col-md-4">
 								<a href="img/elements/g8.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g8.jpg);"></div></a>
-							</div> -->
+							</div> 
 						</div>
 					</div>
 					<!-- <div class="section-top-border">
@@ -413,8 +369,8 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="section-top-border">
+					</div> -->
+					<!-- <div class="section-top-border">
 						<div class="row">
 							<div class="col-lg-8 col-md-8">
 								<h3 class="mb-30 title_color">Form Element</h3>
@@ -591,7 +547,7 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div> --> 
 			<!-- End Align Area -->
         
         
