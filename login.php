@@ -65,25 +65,50 @@ if(isset($_POST["login"]))
 }
  }
 }
-
-    
-
- 
 ?>
-<!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <title>MeetMe Personal</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="vendors/animate-css/animate.css">
+        <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
-        <h1>Login</h1>
+    <section class="contact_area p_120">
+        <h2 style="text-align: center; color: #766dff">Login</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
         <form action="login.php" method="POST">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" name="login" value="Login">
+            
+            <div class="form-group">
+            <label>Username:</label>
+            <input type="text" class="form-control" placeholder="please enter your username..." id="username" name="username"><br>
+            </div>
+
+            <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" placeholder="please enter your password..." id="password" name="password"><br>
+            </div>
+            
+            <input style="width: 100%" type="submit" class="btn btn-primary" value="Login" name="login">
         </form>
+</div>
+</div>
+</div>
+</section>
     </body>
 </html>

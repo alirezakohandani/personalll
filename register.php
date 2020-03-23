@@ -97,7 +97,7 @@
                             <input type="file" name="image">
                             </div>
 
-                            <input type="submit" class="btn btn-primary" name="ok"/> 
+                            <input style="width: 100%" type="submit" class="btn btn-primary" name="ok"/> 
 
                         </form>
                     </div>
@@ -128,7 +128,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close"></i>
                         </button>
-                        <h2>Sorry !</h2>
+                        <h2>Sorry!</h2>
                         <p> Something went wrong </p>
                     </div>
                 </div>
