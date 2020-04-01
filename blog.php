@@ -72,10 +72,10 @@ include 'connect.php';
 
 $select = $con->prepare("SELECT * FROM news");
 $select->setFetchMode(PDO::FETCH_ASSOC);
-$select->execute();
-while ($data = $select->fetch()) {
-    $image = $data['image'];
-  echo  "<section class='blog_area'>
+$select->execute(); ?>
+<?php while ($data = $select->fetch()):
+    $image = $data['image'];?>
+ <section class='blog_area'>
   <div class='container'>
   <div class='row'>
   <div class='col-lg-8'>
@@ -98,20 +98,20 @@ while ($data = $select->fetch()) {
                           </div>
                      </div>
   <div class='col-md-9'><div class='blog_post'>
-  <img src='newsuploads/$image' style='width:100%'> 
+  <img src='newsuploads/<?php echo $image ?>' style='width:100%'> 
   <div class='blog_details'> 
-  <a href='single-blog.html'><h2>" . $data['subject'] . " </h2></a><p>" . $data['description'] . "
+  <a href='single-blog.html'><h2><?php echo $data['subject'] ?>  </h2></a><p> <?php echo $data['description']?> 
  </p></div></div></div></article></div></div></div></section>";
                                     
                                         
-                                           
+<!--                                            
                         
 //    echo "<h2 style='text-align:center; color: gray'>" . $data['subject'] . "</h2>" . "<br>"; 
 //    echo "<p style='text-align:center'>" . $data['description'] . "</p>" . "<br>";
 //    $image = $data['image'];
-//    echo "<img src='newsuploads/$image' style='display: block; margin-left: auto; margin-right:auto; width:50%'>";
-}
-?>
+//    echo "<img src='newsuploads/$image' style='display: block; margin-left: auto; margin-right:auto; width:50%'>";  -->
+
+<?php endwhile ?>
 
      
         <!--================Blog Area =================-->

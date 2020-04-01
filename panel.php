@@ -32,9 +32,9 @@ if(!in_array($ext,$allowed))
 
 else{ 
 
-move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
+move_uploaded_file( $_FILES['image']['tmp_name'], $path); 
 
-$sth=$con->prepare("insert into users(image)values(:image) "); 
+$sth=$con->prepare("INSERT INTO news(image)values(:image) "); 
 
 $sth->bindParam(':image',$image); 
 

@@ -14,5 +14,9 @@
             "url": "http://localhost/meetme/gallery.php",
             "webRoot": "${workspaceFolder}"
         }
+        
+       
     ]
+    
 }
+
