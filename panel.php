@@ -4,121 +4,113 @@ session_start();
 
 include 'connect.php';
 
-if (isset($_POST['ok']))
- {
-    $folder ="newsuploads/"; 
+if (isset($_POST['ok'])) {
+    $folder = "newsuploads/";
 
-$image = $_FILES['image']['name']; 
+    $image = $_FILES['image']['name'];
 
-$path = $folder . $image ; 
+    $path = $folder . $image;
 
-$target_file=$folder.basename($_FILES["image"]["name"]);
-
-
-$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
+    $target_file = $folder . basename($_FILES["image"]["name"]);
 
 
-$allowed=array('jpeg','png' ,'jpg');
-$filename=$_FILES['image']['name']; 
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-$ext=pathinfo($filename, PATHINFO_EXTENSION); 
-if(!in_array($ext,$allowed)) 
 
-{ 
+    $allowed = array('jpeg', 'png', 'jpg');
+    $filename = $_FILES['image']['name'];
 
- echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    if (!in_array($ext, $allowed)) {
 
-}
+        echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+    } else {
 
-else{ 
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
 
-move_uploaded_file( $_FILES['image']['tmp_name'], $path); 
+        $sth = $con->prepare("INSERT INTO news(image)VALUES(:image) ");
 
-$sth=$con->prepare("INSERT INTO news(image)values(:image) "); 
+        $sth->bindParam(':image', $image);
 
-$sth->bindParam(':image',$image); 
-
-$sth->execute(); 
-
-} 
+        $sth->execute();
+    }
     $sql = "INSERT INTO news(subject,description,image)
-    VALUES('".$_POST["subject"]."','".$_POST["desc"]."', '$image')";
+    VALUES('" . $_POST["subject"] . "','" . $_POST["desc"] . "', '$image')";
     if ($con->query($sql)) {
         header("Location: http://localhost/meetme/blog.php");
-    }
-    else{
+    } else {
         echo "your post dont send!!" . "<br>" . "please check";
     }
     $pdo = null;
- }
-   
-//for cookie
-if(!isset($_COOKIE["type"]))
-{
- header("location:login.php");
 }
-  
+
+//for cookie
+if (!isset($_COOKIE["type"])) {
+    header("location:login.php");
+}
+
 
 ?>
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>MeetMe Personal</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-        <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
-        <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-    </head>
-    <body>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>MeetMe Personal</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/animate-css/animate.css">
+    <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+    <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
     <section>
-<div class="container">
-<div class="row">
-<div class="col-lg-9" style="background-color:#007bff">
-<form method="POST" enctype="multipart/form-data">
-<lable>Add your subject:</lable>
-<input type="text" name="subject" placeholder="Enter your subject">
-<br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9" style="background-color:#007bff">
+                    <form method="POST" enctype="multipart/form-data">
+                        <lable>Add your subject:</lable>
+                        <input type="text" name="subject" placeholder="Enter your subject">
+                        <br>
 
-<lable>Add your description:</lable>
-<input type="text" name="desc" placeholder="Enter your description">
-<br>
+                        <lable>Add your description:</lable>
+                        <input type="text" name="desc" placeholder="Enter your description">
+                        <br>
 
-<lable>Add your image</lable>
-<input type="file" name="image">
-<br>
+                        <lable>Add your image</lable>
+                        <input type="file" name="image">
+                        <br>
 
-<input type="submit" name = "ok" value="publish">
+                        <input type="submit" name="ok" value="publish">
 
-</form>
+                    </form>
 
-</div>
-    <div class="col-lg-3" style="background-color: #6610f2">
-        <img src="registeruploads/download.jpeg" style="border-radius: 50%; width: 100%; height: 210px">
-        <?php
-        if(isset($_COOKIE["type"]))
-   {
-    echo '<h2 align="center">HI ' . $_COOKIE['type'] . '</h2>';
-   }
-?>
-<ul style="float:right">
-<li><a href="" id="article">مقاله</a></li>
-</ul>
-    </div>
-    </div>
-</div>
-</section>
-    </body>
+                </div>
+                <div class="col-lg-3" style="background-color: #6610f2">
+                    <img src="registeruploads/download.jpeg" style="border-radius: 50%; width: 100%; height: 210px">
+                    <?php
+                    if (isset($_COOKIE["type"])) {
+                        echo '<h2 align="center">HI ' . $_COOKIE['type'] . '</h2>';
+                    }
+                    ?>
+                    <ul style="float:right">
+                        <li><a href="" id="article">مقاله</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

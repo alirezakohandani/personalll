@@ -92,7 +92,7 @@ if(isset($_POST["login"]))
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-        <form action="login.php" method="POST">
+        <form action="process/process-login.php" method="POST">
             
             <div class="form-group">
             <label>Username:</label>

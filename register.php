@@ -73,7 +73,7 @@
                     
                     <div class="col-lg-12">
                     
-                        <form method="POST" enctype="multipart/form-data"> 
+                        <form action="process/process-register.php" method="POST" enctype="multipart/form-data"> 
                   
                             <div class="form-group">
                             <lable>Username:</lable>
@@ -87,7 +87,7 @@
 
                             <div class="form-group">
                             <lable>Password:</lable>
-                            <input type="password" class="form-control" placeholder="Enter email" name="password" required>
+                            <input type="password" class="form-control" placeholder="Enter password" name="password" required>
                             </div>
 
                            
