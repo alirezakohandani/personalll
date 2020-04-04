@@ -60,10 +60,10 @@
         <link rel="stylesheet" href="vendors/animate-css/animate.css">
         <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
         <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css?v=2">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
-    <body style="background-image: url('img/Register-For-Employees.jpg'); opacity: 0.9; background-repeat: no-repeat; background-size:cover">
+    <body class="register">
 <section class="contact_area p_120">
 
 <h2 style="text-align: center; color: black">Register</h2>
@@ -76,28 +76,28 @@
                         <form action="process/process-register.php" method="POST" enctype="multipart/form-data"> 
                   
                             <div class="form-group">
-                            <lable>Username:</lable>
-                            <input style="border: 1px solid black" type="text" class="form-control" placeholder="Enter username" name="username" required>
+                            <lable class="register-color">Username:</lable>
+                            <input type="text" class="form-control register-border" placeholder="Enter username" name="username" required>
                             </div>
 
                             <div class="form-group">
-                            <lable>Email:</lable>
-                            <input style="border: 1px solid black" type="text" class="form-control" placeholder="Enter email" name="email" required>
+                            <lable class="register-color">Email:</lable>
+                            <input type="text" class="form-control register-border" placeholder="Enter email" name="email" required>
                             </div>
 
                             <div class="form-group">
-                            <lable>Password:</lable>
-                            <input style="border: 1px solid" type="password" class="form-control" placeholder="Enter password" name="password" required>
+                            <lable class="register-color">Password:</lable>
+                            <input type="password" class="form-control register-border" placeholder="Enter password" name="password" required>
                             </div>
 
                            
 
                             <div class="form-group">
-                            <lable>image:</lable>
+                            <lable class="register-color">image:<br></lable>
                             <input type="file" name="image">
                             </div>
 
-                            <input style="width: 100%" type="submit" class="btn btn-primary" name="ok"/> 
+                            <input style="width: 100%" type="submit" class="btn btn-primary register-border" name="ok"/> 
 
                         </form>
                     </div>

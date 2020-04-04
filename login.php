@@ -17,25 +17,25 @@
         <link rel="stylesheet" href="vendors/animate-css/animate.css">
         <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
         <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css?v=2">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
-    <body>
+    <body class="register">
     <section class="contact_area p_120">
-        <h2 style="text-align: center; color: #766dff">Login</h2>
+        <h2 style="text-align: center; color: black">Login</h2>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
         <form action="process/process-login.php" method="POST">
             
             <div class="form-group">
-            <label>Username:</label>
-            <input type="text" class="form-control" placeholder="please enter your username..." id="username" name="username"><br>
+            <label class="register-color">Username:</label>
+            <input type="text" class="form-control register-border" placeholder="please enter your username..." id="username" name="username">
             </div>
 
             <div class="form-group">
-            <label>Password:</label>
-            <input type="password" class="form-control" placeholder="please enter your password..." id="password" name="password"><br>
+            <label class="register-color">Password:</label>
+            <input type="password" class="form-control register-border" placeholder="please enter your password..." id="password" name="password"><br>
             </div>
             
             <input style="width: 100%" type="submit" class="btn btn-primary" value="Login" name="login">
