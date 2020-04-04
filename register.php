@@ -63,10 +63,10 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
-    <body>
+    <body style="background-image: url('img/Register-For-Employees.jpg'); opacity: 0.9; background-repeat: no-repeat; background-size:cover">
 <section class="contact_area p_120">
 
-<h2 style="text-align: center; color: #766dff">Register</h2>
+<h2 style="text-align: center; color: black">Register</h2>
             <div class="container">
                
                 <div class="row">
@@ -77,17 +77,17 @@
                   
                             <div class="form-group">
                             <lable>Username:</lable>
-                            <input type="text" class="form-control" placeholder="Enter username" name="username" required>
+                            <input style="border: 1px solid black" type="text" class="form-control" placeholder="Enter username" name="username" required>
                             </div>
 
                             <div class="form-group">
                             <lable>Email:</lable>
-                            <input type="text" class="form-control" placeholder="Enter email" name="email" required>
+                            <input style="border: 1px solid black" type="text" class="form-control" placeholder="Enter email" name="email" required>
                             </div>
 
                             <div class="form-group">
                             <lable>Password:</lable>
-                            <input type="password" class="form-control" placeholder="Enter password" name="password" required>
+                            <input style="border: 1px solid" type="password" class="form-control" placeholder="Enter password" name="password" required>
                             </div>
 
                            
