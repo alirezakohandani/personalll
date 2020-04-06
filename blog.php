@@ -1,5 +1,6 @@
 <!--================Header Menu Area =================-->
 <?php include 'header.php'; ?>
+<?php include 'connect.php'; ?> 
 <!--================Header Menu Area =================-->
 
 <!--================Home Banner Area =================-->
@@ -33,7 +34,6 @@
 </div>
 <br>
 <?php
-include 'connect.php';
 
 if (isset($_GET["s"])) {
     $select = $con->prepare("SELECT description FROM news");
@@ -115,6 +115,11 @@ $select->execute(); ?>
                         <article class='row blog_item'>
                             <div class='col-md-3'>
                                 <div class='blog_info text-right'>
+                                <div class='post_tag'>
+                                <p>category is: <a class='active' href='#'><?= $data["category"]; ?></a></p>
+  
+                                    </div>
+                                
                                     <div class='post_tag'>
                                         <a href='#'>Food,</a>
                                         <a class='active' href='#'>Technology,</a>
@@ -137,7 +142,28 @@ $select->execute(); ?>
                                             <h2><?php echo $data['subject'] ?> </h2>
                                         </a>
                                         <p> <?php echo $data['description'] ?></p>
+                                        <hr>
                                     </div>
+                               
+                                    <?php
+
+                                        $post_id = $data["id"];
+                                        
+                                            
+                                            $select1 = $con->prepare("SELECT * FROM commen1 where id IN ('$post_id')");
+                                            $select1->setFetchMode(PDO::FETCH_ASSOC);
+                                            $select1->execute();
+                                            while ($data = $select1->fetch()) {
+                                              echo  $data["commentt"] . "<br>";
+                                            }
+                                    
+                                    ?>
+                   <form method="POST" action="blog.php">
+                                    <input type="text" name="comment1" placeholder="enter your comment">
+                                    <input type="submit" name="sendcomment" value="submit">
+                                
+                                        </form>
+ 
                                 </div>
                             </div>
                         </article>
@@ -145,6 +171,7 @@ $select->execute(); ?>
                 </div>
             </div>
     </section>
+    
     <!--                                            
                         
 //    echo "<h2 style='text-align:center; color: gray'>" . $data['subject'] . "</h2>" . "<br>"; 
@@ -152,7 +179,21 @@ $select->execute(); ?>
 //    $image = $data['image'];
 //    echo "<img src='newsuploads/$image' style='display: block; margin-left: auto; margin-right:auto; width:50%'>";  -->
 
-<?php endwhile; }  ?>
+                            <?php 
+                            endwhile; } 
+                            // if (isset($_POST["sendcomment"])) {
+                                        
+                            //             $sql = "INSERT INTO commen1 (commentt, id)
+                            //             VALUES ('".$_POST["comment1"]."', '$post_id')";
+                            //            if ($con->query($sql)) {
+                            //             echo "<script type= 'text/javascript'>alert('New Record Inserted Successfully');</script>";
+                            
+                                       
+                            //              }
+                            //              else{
+                            //              echo "<script type= 'text/javascript'>alert('Data not successfully Inserted.');</script>";
+                            //              }
+                            //             } ?>
 
 
 <!--================End Blog Area =================-->

@@ -4,6 +4,7 @@ session_start();
 
 include 'connect.php';
 
+
 if (isset($_POST['ok'])) {
     $folder = "newsuploads/";
 
@@ -34,8 +35,8 @@ if (isset($_POST['ok'])) {
 
         $sth->execute();
     }
-    $sql = "INSERT INTO news(subject,description,image)
-    VALUES('" . $_POST["subject"] . "','" . $_POST["desc"] . "', '$image')";
+    $sql = "INSERT INTO news(subject,description,category,image)
+    VALUES('" . $_POST["subject"] . "','" . $_POST["desc"] . "','" . $_POST["category"] . "', '$image')";
     if ($con->query($sql)) {
         header("Location: http://localhost/meetme/blog.php");
     } else {
@@ -48,6 +49,8 @@ if (isset($_POST['ok'])) {
 if (!isset($_COOKIE["type"])) {
     header("location:login.php");
 }
+
+
 
 
 ?>
@@ -86,8 +89,26 @@ if (!isset($_COOKIE["type"])) {
                         <input type="text" name="subject" placeholder="Enter your subject">
                         <br>
 
+                        <lable>Add your category:</lable>
+                        <select name="category">
+                            <?php $select = $con->prepare("SELECT * FROM category");
+$select->setFetchMode(PDO::FETCH_ASSOC);
+$select->execute(); ?>
+
+    $cat = $data["category"];
+    <?php 
+while ($data = $select->fetch()) {
+    
+    ?>
+
+                            <option value = "<?= $data["category"] ?>"><?= $data["category"] ?></option>
+
+<?php } ?>
+                        </select>
+                        <br>
+
                         <lable>Add your description:</lable>
-                        <input type="text" name="desc" placeholder="Enter your description">
+                        <textarea name="desc" row-col="10" placeholder="Enter your description"></textarea>
                         <br>
 
                         <lable>Add your image</lable>
