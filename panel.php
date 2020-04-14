@@ -83,52 +83,71 @@ if (!isset($_COOKIE["type"])) {
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-lg-9" style="background-color:#007bff">
+                <div class="col-lg-9">
+                    <h2 style="text-align: center">مقاله</h2>
                     <form method="POST" enctype="multipart/form-data">
-                        <lable>Add your subject:</lable>
-                        <input type="text" name="subject" placeholder="Enter your subject">
-                        <br>
+                        <div class="form-group">
+                            <lable>Add your subject:</lable>
+                            <input class="form-control" type="text" name="subject" placeholder="Enter your subject">
+                        </div>
+                        <div class="form-group">
+                            <lable>Add your category:</lable>
+                            <select class="form-control" name="category">
+                                <?php $select = $con->prepare("SELECT * FROM category");
+                                $select->setFetchMode(PDO::FETCH_ASSOC);
+                                $select->execute(); ?>
 
-                        <lable>Add your category:</lable>
-                        <select name="category">
-                            <?php $select = $con->prepare("SELECT * FROM category");
-$select->setFetchMode(PDO::FETCH_ASSOC);
-$select->execute(); ?>
+                              
+                                <?php
+                                while ($data = $select->fetch()) {
 
-    $cat = $data["category"];
-    <?php 
-while ($data = $select->fetch()) {
-    
-    ?>
+                                ?>
 
-                            <option value = "<?= $data["category"] ?>"><?= $data["category"] ?></option>
+                                    <option value="<?= $data["category"] ?>"><?= $data["category"] ?></option>
 
-<?php } ?>
-                        </select>
-                        <br>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
 
-                        <lable>Add your description:</lable>
-                        <textarea name="desc" row-col="10" placeholder="Enter your description"></textarea>
-                        <br>
+                            <lable>Add your description:</lable>
+                            <textarea class="form-control" name="desc" rows="10" placeholder="Enter your description"></textarea>
+                            <br>
+                        </div>
+                        <div class="form-group">
+                            <lable>Add your image</lable>
+                            <input class="form-control" type="file" name="image">
 
-                        <lable>Add your image</lable>
-                        <input type="file" name="image">
-                        <br>
-
-                        <input type="submit" name="ok" value="publish">
+                        </div>
+                        <input class="btn btn-success" style="width: 100%" type="submit" name="ok" value="publish" width="100%">
 
                     </form>
 
                 </div>
-                <div class="col-lg-3" style="background-color: #6610f2">
-                    <img src="registeruploads/download.jpeg" style="border-radius: 50%; width: 100%; height: 210px">
+                <div class="col-lg-3" style="border: 1px solid black">
                     <?php
-                    if (isset($_COOKIE["type"])) {
-                        echo '<h2 align="center">HI ' . $_COOKIE['type'] . '</h2>';
+                    $select = $con->prepare("SELECT image,username FROM users");
+                    $select->setFetchMode(PDO::FETCH_ASSOC);
+                    $select->execute();
+                    while ($data = $select->fetch()) {
+                        if ($data['username'] == $_COOKIE["type"]) {
+                            $image = $data['image'];
+
+                            echo "<img src='registeruploads/$image' style='border-radius: 50%; width: 100%; height: 210px; box-shadow: 3px 3px 3px gray; border: 1px solid black'>";
+                        }
                     }
+                    ?>
+
+                    <?php
+
+                    echo '<h2 align="center">HI ' . $_COOKIE['type'] . '</h2>';
+
                     ?>
                     <ul style="float:right">
                         <li><a href="" id="article">مقاله</a></li>
+                        <li><a href="">مشاهده قیمت بیت کوین</a></li>
+                        <li><a href="">مشاهده وضعیت مقالات ارسالی</a></li>
+
                     </ul>
                 </div>
             </div>
