@@ -38,7 +38,8 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item active"><a class="nav-link" href="<?php get_url(); ?>">Home</a></li> 
+								<li class="nav-item active"><a class="nav-link" href="<?= get_url(); ?>">Home</a></li> 
+								<li class="nav-item active"><a class="nav-link" href="<?= get_url("crypto.php"); ?>">CryptoCurrencyPrice</a></li> 
 								<!-- <li class="nav-item"><a class="nav-link" href="about-us.php">About</a></li>  -->
 								<!-- <li class="nav-item"><a class="nav-link" href="services.php">Services</a></li>  -->
 								<!-- <li class="nav-item submenu dropdown">
