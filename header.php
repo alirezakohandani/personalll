@@ -39,7 +39,6 @@
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item active"><a class="nav-link" href="<?= get_url(); ?>">Home</a></li> 
-								<li class="nav-item active"><a class="nav-link" href="<?= get_url("crypto.php"); ?>">CryptoCurrencyPrice</a></li> 
 								<!-- <li class="nav-item"><a class="nav-link" href="about-us.php">About</a></li>  -->
 								<!-- <li class="nav-item"><a class="nav-link" href="services.php">Services</a></li>  -->
 								<!-- <li class="nav-item submenu dropdown">
@@ -57,6 +56,7 @@
 									</ul> -->
 								</li> 
 								<li class="nav-item"><a class="nav-link" href="<?= get_url("contact.php"); ?>">Contact</a></li>
+								<li class="nav-item active"><a class="nav-link" href="<?= get_url("crypto.php"); ?>">CryptoCurrency-Price</a></li> 
 								<li class="nav-item"><a class="nav-link" href="<?= get_url("register.php"); ?>">
 									<button class="btn btn-danger">register</button>
 									</a></li>
