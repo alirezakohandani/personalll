@@ -21,7 +21,7 @@
 
 <!--================Blog Categorie Area =================-->
 <br>
-<h1 style="text-align:center">NEWS & ARTICLES</h1>
+<h1 style="text-align:center">مقالات</h1>
 <hr>
 <br>
 <!-- Search form -->
@@ -106,42 +106,24 @@ $select = $con->prepare("SELECT * FROM news");
 $select->setFetchMode(PDO::FETCH_ASSOC);
 $select->execute(); ?>
 <?php while ($data = $select->fetch()) :
-    $image = $data['image']; ?>
+    $image = $data['image'];
+    $date = $data['createdat'];
+    ?>
     <section class='blog_area'>
         <div class='container'>
             <div class='row'>
-                <div class='col-lg-8'>
+                <div class='col-lg-12'>
                     <div class='blog_left_sidebar'>
                         <article class='row blog_item'>
-                            <div class='col-md-3'>
-                                <div class='blog_info text-right'>
-                                <div class='post_tag'>
-                                <p>category is: <a class='active' href='#'><?= $data["category"]; ?></a></p>
-  
-                                    </div>
-                                
-                                    <div class='post_tag'>
-                                        <a href='#'>Food,</a>
-                                        <a class='active' href='#'>Technology,</a>
-                                        <a href='#'>Politics,</a>
-                                        <a href='#'>Lifestyle</a>
-                                    </div>
-                                    <ul class='blog_meta list'>
-                                        <li><a href='#'>Mark wiens<i class='lnr lnr-user'></i></a></li>
-                                        <li><a href='#'>12 Dec, 2017<i class='lnr lnr-calendar-full'></i></a></li>
-                                        <li><a href='#'>1.2M Views<i class='lnr lnr-eye'></i></a></li>
-                                        <li><a href='#'>06 Comments<i class='lnr lnr-bubble'></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
                             <div class='col-md-9'>
                                 <div class='blog_post'>
                                     <img src='newsuploads/<?php echo $image ?>' style='width:100%'>
                                     <div class='blog_details'>
                                         <a href='single-blog.html'>
-                                            <h2><?php echo $data['subject'] ?> </h2>
+                                            <h2 style="text-align: right"><?php echo $data['subject'] ?> </h2>
                                         </a>
-                                        <p> <?php echo $data['description'] ?></p>
+                                        <p style="text-align: right"><?php echo $data['description'] ?></p>
                                         <hr>
                                     </div>
                                
@@ -164,6 +146,27 @@ $select->execute(); ?>
                                 
                                         </form>
  
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                                <div class='blog_info text-right'>
+                                <div class='post_tag'>
+                                <p>category is: <a class='active' href='#'><?= $data["category"]; ?></a></p>
+  
+                                    </div>
+                                
+                                    <div class='post_tag'>
+                                        <a href='#'>Food,</a>
+                                        <a class='active' href='#'>Technology,</a>
+                                        <a href='#'>Politics,</a>
+                                        <a href='#'>Lifestyle</a>
+                                    </div>
+                                    <ul class='blog_meta list'>
+                                        <li><a href='#'>Mark wiens<i class='lnr lnr-user'></i></a></li>
+                                        <li><a href='#'><?= $date; ?><i class='lnr lnr-calendar-full'></i></a></li>
+                                        <li><a href='#'>1.2M Views<i class='lnr lnr-eye'></i></a></li>
+                                        <li><a href='#'>06 Comments<i class='lnr lnr-bubble'></i></a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
@@ -194,6 +197,7 @@ $select->execute(); ?>
                             //              echo "<script type= 'text/javascript'>alert('Data not successfully Inserted.');</script>";
                             //              }
                             //             } ?>
+
 
 
 <!--================End Blog Area =================-->

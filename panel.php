@@ -35,8 +35,9 @@ if (isset($_POST['ok'])) {
 
         $sth->execute();
     }
-    $sql = "INSERT INTO news(subject,description,category,image)
-    VALUES('" . $_POST["subject"] . "','" . $_POST["desc"] . "','" . $_POST["category"] . "', '$image')";
+    $date = $_POST["date"];
+    $sql = "INSERT INTO news(subject,description,category,image,createdat)
+    VALUES('" . $_POST["subject"] . "','" . $_POST["desc"] . "','" . $_POST["category"] . "', '$image' , '$date')";
     if ($con->query($sql)) {
         header("Location: http://localhost/meetme/blog.php");
     } else {
@@ -118,6 +119,8 @@ if (!isset($_COOKIE["type"])) {
                             <lable>Add your image</lable>
                             <input class="form-control" type="file" name="image">
 
+                            <input type="hidden" name="date" value="<?= date('Y-m-d H:i:s'); ?>">
+
                         </div>
                         <input class="btn btn-success" style="width: 100%" type="submit" name="ok" value="publish" width="100%">
 
@@ -153,4 +156,5 @@ if (!isset($_COOKIE["type"])) {
             </div>
         </div>
     </section>
+    
 </body>
