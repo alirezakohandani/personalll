@@ -1,6 +1,13 @@
 <!--================Header Menu Area =================-->
+
 <?php include 'header.php'; ?>
 <?php include 'connect.php'; ?> 
+<?php 
+    
+?>
+<?php
+
+?>
 <!--================Header Menu Area =================-->
 
 <!--================Home Banner Area =================-->
@@ -129,9 +136,7 @@ $select->execute(); ?>
                                
                                     <?php
 
-                                        $post_id = $data["id"];
-                                        
-                                            
+                                            $post_id = $data["id"];
                                             $select1 = $con->prepare("SELECT * FROM commen1 where id IN ('$post_id')");
                                             $select1->setFetchMode(PDO::FETCH_ASSOC);
                                             $select1->execute();
@@ -162,7 +167,7 @@ $select->execute(); ?>
                                         <a href='#'>Lifestyle</a>
                                     </div>
                                     <ul class='blog_meta list'>
-                                        <li><a href='#'>Mark wiens<i class='lnr lnr-user'></i></a></li>
+                                        <li><a href='#'>Alireza Kohandani<i class='lnr lnr-user'></i></a></li>
                                         <li><a href='#'><?= $date; ?><i class='lnr lnr-calendar-full'></i></a></li>
                                         <li><a href='#'>1.2M Views<i class='lnr lnr-eye'></i></a></li>
                                         <li><a href='#'>06 Comments<i class='lnr lnr-bubble'></i></a></li>

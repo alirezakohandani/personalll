@@ -3,7 +3,11 @@
 session_start();
 
 include 'connect.php';
-
+include 'vendor/autoload.php';
+Hekmatinasser\Verta\VertaServiceProvider::class;   
+Hekmatinasser\Verta\Verta::class;
+use Hekmatinasser\Verta\Verta;
+$v = new Verta();
 
 if (isset($_POST['ok'])) {
     $folder = "newsuploads/";
@@ -97,8 +101,6 @@ if (!isset($_COOKIE["type"])) {
                                 <?php $select = $con->prepare("SELECT * FROM category");
                                 $select->setFetchMode(PDO::FETCH_ASSOC);
                                 $select->execute(); ?>
-
-                              
                                 <?php
                                 while ($data = $select->fetch()) {
 
@@ -119,7 +121,7 @@ if (!isset($_COOKIE["type"])) {
                             <lable>Add your image</lable>
                             <input class="form-control" type="file" name="image">
 
-                            <input type="hidden" name="date" value="<?= date('Y-m-d H:i:s'); ?>">
+                            <input type="hidden" name="date" value="<?= verta::now(); ?>">
 
                         </div>
                         <input class="btn btn-success" style="width: 100%" type="submit" name="ok" value="publish" width="100%">
