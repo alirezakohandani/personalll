@@ -3,46 +3,7 @@
  {
   header("Location: http://localhost/meetme/panel.php");
  }
-
-
-    include 'connect.php';
-
-    if (isset($_POST["ok"])) {
-        $folder = "registeruploads/";
-        $image = $_FILES['image']['name'];
-        $path = $folder . $image;
-        $target_file = $folder.basename($_FILES['image']['name']);
-
-        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-        $allowed = array('jpeg', 'png' , 'jpg');
-        $filename = $_FILES['image']['name'];
-
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if (!in_array($ext, $allowed)) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
-        }
-        else {
-            move_uploaded_file($_FILES['image'] ['tmp_name'], $path);
-            $sth=$con->prepare("INSERT INTO register(image)VALUES(:image)");
-            $sth->bindParam(':image', $image);
-            $sth->execute();
-        }
-        $sql = "INSERT INTO register (username, password, email, image)
-         VALUES ('".$_POST["username"]."','".md5($_POST["password"])."','".$_POST["email"]."', '$image')";
-        if ($con->query($sql)) {
-        //   echo "<script type= 'text/javascript'>alert('New Record Inserted Successfully');</script>";
-        header("Location: http://localhost/MEETME/panel.php");
-          }
-          else{
-          echo "<script type= 'text/javascript'>alert('Data not successfully Inserted.');</script>";
-          }
-          
-          $pdo = null;
-    }
-
-
-?>
+    include 'connect.php';?>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -90,20 +51,21 @@
                             <input type="password" class="form-control register-border" placeholder="Enter password" name="password" required>
                             </div>
 
-                           
-
+                  
                             <div class="form-group">
                             <lable class="register-color">image:<br></lable>
                             <input type="file" name="image">
                             </div>
 
                             <input style="width: 100%" type="submit" class="btn btn-primary register-border" name="ok"/> 
-
+                    
                         </form>
+                        <a style="text-align: center; font-size: 1.5em" class="nav-link" href="login.php">Login</a>
                     </div>
                 </div>
             </div>
         </section>
+       
            <!--================Contact Success and Error message Area =================-->
            <div id="success" class="modal modal-message fade" role="dialog">
             <div class="modal-dialog">

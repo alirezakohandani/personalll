@@ -1,5 +1,6 @@
 {
     "require": {
-        "hekmatinasser/verta": "^1.10"
+        "hekmatinasser/verta": "^1.10",
+        "mpdf/mpdf": "^8.0"
     }
 }

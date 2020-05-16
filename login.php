@@ -40,6 +40,7 @@
             
             <input style="width: 100%" type="submit" class="btn btn-primary" value="Login" name="login">
         </form>
+        <a style="text-align: center; font-size: 1.5em" class="nav-link" href="register.php">Register</a>
 </div>
 </div>
 </div>

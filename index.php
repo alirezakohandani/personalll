@@ -19,6 +19,7 @@
 									<h3>Alireza Kohandani</h3>
 									<h4>Software engineer</h4>
 									<p>Experienced Web Developer with a demonstrated history of working in the computer software industry. Skilled in PHP, WordPress, jQuery, Bootstrap, and Cascading Style Sheets (CSS).</p>
+									<a href="<?= "resume.php" ?>">download resume</a>
 									<ul class="list basic_info">
 										<li><a href="#"><i class="lnr lnr-calendar-full"></i> 27st July, 1994</a></li>
 										<li><a href="#"><i class="lnr lnr-phone-handset"></i>0912-9750492</a></li>

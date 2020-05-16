@@ -1,21 +1,11 @@
 <?php
  session_start();
 
- $username = $_SESSION['username'];
- $password = md5($_SESSION['password']);
+$username = $_POST["username"]; 
+$password = $_POST["password"];
+$pass_hash = md5($_POST["password"]);
 
- 
-//login.php
-/**
- * Start the session.
- */
- 
-
-/**
- * Include our MySQL connection.
- */
 include '../connect.php';
-
 
 if(isset($_COOKIE["type"]))
 {
@@ -26,7 +16,7 @@ $message = '';
 
 if(isset($_POST["login"]))
 {
- if(empty($_POST["username"]))
+ if(empty($username) && empty($password))
  {
   $message = "<div class='alert alert-danger'>Both Fields are required</div>";
  }
@@ -37,21 +27,17 @@ if(isset($_POST["login"]))
   $statement->execute(
    array(
     'username' => $_POST["username"]
-    
    )
   );
- 
   $count = $statement->rowCount();
   if($count > 0)
   {
-   $result = $statement->fetchAll();
+  $result = $statement->fetchAll();
    foreach($result as $row)
    {
-
     if(md5($_POST["password"]) == $row["password"]) {
-
-     setcookie("type", $_POST['username'], time()+3600, "/");
-     header("location:../panel.php");
+    setcookie("type", $_POST['username'], time()+3600, "/");
+    header("location:../panel.php");
     }
     else
     {

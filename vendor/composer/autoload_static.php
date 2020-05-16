@@ -12,6 +12,7 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '4364d9898253482270d33c3e7d349234' => __DIR__ . '/..' . '/hekmatinasser/notowo/src/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '4ad677cf23be1eeec8c74951804d4cb0' => __DIR__ . '/..' . '/hekmatinasser/verta/src/helpers.php',
     );
 
@@ -20,6 +21,10 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         array (
             'voku\\tests\\' => 11,
             'voku\\' => 5,
+        ),
+        's' => 
+        array (
+            'setasign\\Fpdi\\' => 14,
         ),
         'S' => 
         array (
@@ -35,7 +40,12 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
+            'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+        ),
+        'M' => 
+        array (
+            'Mpdf\\' => 5,
         ),
         'I' => 
         array (
@@ -59,6 +69,7 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         array (
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Lexer\\' => 22,
+            'DeepCopy\\' => 9,
         ),
         'C' => 
         array (
@@ -74,6 +85,10 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'setasign\\Fpdi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
         ),
         'Symfony\\Polyfill\\Php72\\' => 
         array (
@@ -111,9 +126,17 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Mpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
         'Illuminate\\Validation\\' => 
         array (
@@ -158,6 +181,10 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
+        'DeepCopy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
         'Carbon\\' => 
         array (

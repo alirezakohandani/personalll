@@ -2,8 +2,9 @@
         
         <!--================Header Menu Area =================-->
 		<?php 
-		include 'vendor/autoload.php';
-		include 'header.php'; ?>
+		
+		include 'header.php'; 
+		?>
         <!--================Header Menu Area =================-->
         
         <!--================Home Banner Area =================-->
