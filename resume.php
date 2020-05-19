@@ -2,13 +2,22 @@
 
 
 
-include 'vendor/autoload.php';
-Mpdf\Mpdf::class;
-use Mpdf\Mpdf;
+require 'vendor/autoload.php';
+// reference the Dompdf namespace
+use Dompdf\Dompdf;
 
-$mpdf = new Mpdf();
+// instantiate and use the dompdf class
+$dompdf = new Dompdf();
+$dompdf->loadHtml(" 
+ALIREZA KOHANDANI<br>
+SOFTWARE ENGINEER<br>
+Experienced Web Developer with a demonstrated history of working in the computer software industry. Skilled in PHP, jQuery, Bootstrap, and Cascading Style Sheets (CSS).");
 
-$mpdf->Bookmark('Start of the document');
-$mpdf->WriteHTML('<div>Section 1 text</div>');
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('A4', 'landscape');
 
-$mpdf->Output();
+// Render the HTML as PDF
+$dompdf->render();
+
+// Output the generated PDF to Browser
+$dompdf->stream();

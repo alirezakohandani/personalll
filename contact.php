@@ -1,64 +1,69 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
-
-
-
-    include 'connect.php';
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+require 'vendor/autoload.php';
+include 'connect.php';
     if(isset($_POST['ok'])) 
 
     { 
-    // $name = $_POST["name"];
-    // $email = $_POST["email"];
-    // $subject = $_POST["subject"];
-    // $message = $_POST["message"];
-
-    // require_once "PHPMailer/PHPMailer.php";
-    // require_once "PHPMailer/SMTP.php";
-    // require_once "PHPMailer/Exception.php";
-
-    // $mail = new PHPMailer();
-
-    // //SMTP Setting
-    //     $mail->isSMTP();
-    //     $mail->Host= "smtp.gmail.com";
-    //     $mail->SMTPAuth = true;
-    //     $mail->Username = "alireza.ko73@gmail.com";
-    //     $mail->Password = "@lirezakohandani0371054222";
-    //     $mail->Port = 465; //587
-    //     $mail->SMTPSecure = "ssl";//tls
-
-    //     //Email Setting
-    //     $mail->isHTML(true);
-    //     $mail->setFrom($email, $name);
-    //     $mail->addAddress("alirezakohandani377@yahoo.com");
-    //     $mail->Subject = $subject;
-    //     $mail->Body = $message;
-
-    //     if ($mail->send()) {
-    //         $response = "Email is sent!";
-    //     }
-    //     else {
-    //         $response = "Somthing is wrong: <br> <br>" . $mail->ErrorInfo;
-    //         exit(json_encode(array("response"=>$response)));
-    //     }
-
-
    
     $sql = "INSERT INTO ContactUs (name, email, subject, message)
              VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["subject"]."', '".$_POST["message"]."')";
             if ($con->query($sql)) {
-              echo "<script type= 'text/javascript'>alert('New Record Inserted Successfully');</script>";
+              echo "sucess";
               }
               else{
-              echo "<script type= 'text/javascript'>alert('Data not successfully Inserted.');</script>";
+              echo "failed";
               }
               
               $pdo = null;
     
+            
+              
+            
+            //   $development_mode = true;
+              $mail = new PHPMailer();
+              try {
+              $mail->SMTPDebug = 2; 
+              $mail->isSMTP();   
+              
+            //   if ($development_mode) {
+            //       $mail->SMTPOptions = [
+            //           'ssl' => [
+            //               'verify_peer' => false,
+            //               'verify_peer_name' => false,
+            //               'allow_self_signed' => true
+            //           ]
+            //           ];
+
+            //   }
+    
+              $mail->Host = 'smtp.gmail.com';
+              $mail->SMTPAuth = true;
+              $mail->Username = 'alireza.ko73@gmail.com';
+              $mail->Password = 'alirezA73$@vior73';
+              $mail->SMTPSecure = 'tls';
+              $mail->Port = 587;
+              $mail->setFrom("alireza.ko73@gmail.com", 'Alireza mailer');
+              $mail->addAddress($_POST["email"], $_POST["name"]);
+              $mail->isHTML(true); 
+              $mail->Subject = $_POST["subject"];
+              $mail->Body = $_POST["message"];
+              $mail->send();
+              $mail->clearAllRecipients();
+              echo "send sucessfull";
+              } catch(Exception $e) {
+                  echo "kir";
+              }
+
     } 
     
-    
-    
+ 
+
+
+
 
 ?>
 
@@ -117,27 +122,7 @@ use PHPMailer\PHPMailer\PHPMailer;
                         </div>
                     </div>
                     <div class="col-lg-9">
-                        <!-- <form class="row contact_form"  method="POST" id="contactForm">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="name" name="username111" placeholder="Enter your name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-12 text-right">
-                                <button type="submit" value="submit" class="btn submit_btn" name="ok">Send</button>
-                            </div>
-                        </form> -->
+                
                         <form method="POST" enctype="multipart/form-data"> 
 
                             <div class="form-group">
