@@ -7,6 +7,8 @@ include 'vendor/autoload.php';
 Hekmatinasser\Verta\VertaServiceProvider::class;   
 Hekmatinasser\Verta\Verta::class;
 use Hekmatinasser\Verta\Verta;
+use Carbon\Carbon;
+
 $v = new Verta();
 
 if (isset($_POST['ok'])) {
@@ -121,7 +123,7 @@ if (!isset($_COOKIE["type"])) {
                             <lable>Add your image</lable>
                             <input class="form-control" type="file" name="image">
 
-                            <input type="hidden" name="date" value="<?= verta::now(); ?>">
+                            <input type="hidden" name="date" value="<?= Carbon::now(); ?>">
 
                         </div>
                         <input class="btn btn-success" style="width: 100%" type="submit" name="ok" value="publish" width="100%">
