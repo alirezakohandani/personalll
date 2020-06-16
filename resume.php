@@ -2,7 +2,7 @@
 
 
 
-require 'vendor/autoload.php';
+include "init.php";
 // reference the Dompdf namespace
 use Dompdf\Dompdf;
 
