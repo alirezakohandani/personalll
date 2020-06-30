@@ -15,7 +15,8 @@
 							</div>
 							<div class="media-body">
 								<div class="personal_text">
-									<h6>Hello Everybody, i am</h6>
+									<!-- <h6>Hello Everybody, i am</h6> -->
+									<p style="display: none;">علیرضا کهندانی</p>
 									<h3>Alireza Kohandani</h3>
 									<h4>Software engineer</h4>
 									<p>Experienced Web Developer with a demonstrated history of working in the computer software industry. Skilled in PHP, jQuery, Bootstrap, and Cascading Style Sheets (CSS).</p>

@@ -69,8 +69,14 @@ if (isset($_GET["search"])) {
                             <div class='blog_post'>
                                 <!-- <img src='newsuploads/' style='width:100%'> -->
                                 <div class='blog_details'>
+                                <?php
+                                    if ($find_post == null) {
+                                        echo "not found";
+                                    }
+                                    ?>
                                     <h2>result serarch about <?= "<b>$search</b>" ?></h2>
-                                    <p><?php echo $find_post[$i]; ?> </p>
+                                    <p><?php echo $find_post[$i]; ?></p>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -90,6 +96,7 @@ if (isset($_GET["search"])) {
         $image = $data['image'];
         $date = $data['createdat'];
         $date_verta = verta::createTimestamp($date);
+        $len_desc = strlen($data["description"]);
         
     ?>
 <section class='blog_area'>
@@ -100,10 +107,19 @@ if (isset($_GET["search"])) {
                     <article class='row blog_item'>
                         <div class='col-md-9'>
                             <div class='blog_post'>
-                                <img src='newsuploads/<?php echo $image ?>' style='width:100%'>
+                                <img src='newsuploads/<?= $image ?>' style='width:100%'>
                                 <div class='blog_details'>
-                                    <a href='single-blog.html'><h2 style="text-align: right"><?php echo $data['subject'];?></h2></a>
-                                    <p style="text-align: right"><?php echo $data['description'] ?></p>
+                                    <a href='single-blog.html'><h2 style="text-align: right"><?= $data['subject'];?></h2></a>
+                                    <?php if ($len_desc <200) {
+                                      echo "<p style='text-align: right'>" . $data['description'] . "</p>";
+                                    } else {
+                                        //slice description array to 200 part 
+                                        $slice_desc = str_split($data["description"], 199);
+                                        $data_id = $data["id"];
+                                        //echo first slice description -- and -- link to read.php with post id for display full post
+                                        echo $slice_desc[0] . "..." . "<a href = 'read.php/$data_id'>read more</a>";
+                                    }?>
+                                    
                                     <hr>
                                 </div>
                                 <?php
@@ -148,10 +164,12 @@ if (isset($_GET["search"])) {
         </div>
 </section>
 
+
 <?php
-    endwhile;
+  endwhile;
 }
 ?>
+
 <!--================End Blog Area =================-->
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -171,4 +189,7 @@ if (isset($_GET["search"])) {
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
 </body>
+
 </html>
+
+

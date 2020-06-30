@@ -49,6 +49,10 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         array (
             'Mpdf\\' => 5,
         ),
+        'K' => 
+        array (
+            'Kavenegar\\' => 10,
+        ),
         'I' => 
         array (
             'Illuminate\\Validation\\' => 22,
@@ -152,6 +156,10 @@ class ComposerStaticInit79133f6f0f11a649e9f93b006a5c4a53
         'Mpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
+        'Kavenegar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kavenegar/php/src',
         ),
         'Illuminate\\Validation\\' => 
         array (

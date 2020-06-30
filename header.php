@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
         <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
         <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css?v=2">
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
