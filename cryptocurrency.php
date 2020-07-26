@@ -48,7 +48,7 @@ echo sizeof($a);
 <td style="text-align: center"><?php echo $key; ?></td>
 <td style="text-align: center; font-weight: bold; color: green"><?= $value->USD; ?></td>
 <td style="text-align: center; font-weight: bold; color: green"><?= $value->EUR; ?></td>
-<td style="text-align: center; font-weight: bold; color: green"><?= number_format($value->USD * 16200); ?></td>
+<td style="text-align: center; font-weight: bold; color: green"><?= number_format($value->USD * 24200); ?></td>
 
     </tr>
 </tbody>

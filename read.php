@@ -2,6 +2,7 @@
  
 <?php include 'init.php';?>
 <?php
+error_reporting(0);
 $uri = $_SERVER["REQUEST_URI"];
 //give last part URI -- $data_id(post id)
 $end = end(explode('/', $uri));
@@ -13,6 +14,6 @@ $end = end(explode('/', $uri));
         $subject = $data["subject"];
         $desc = $data["description"];
     }
-    //display full post
-    echo "<h1>$subject</h1><br>";
-    echo $desc;
+    ?>
+    <h1 style= 'text-align: center'><?= $subject ?></h1><br>
+    <h4><?= $desc ?></h4>
