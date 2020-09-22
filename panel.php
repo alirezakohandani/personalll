@@ -4,8 +4,9 @@ session_start();
 
 include 'connect.php';
 include 'vendor/autoload.php';
-Hekmatinasser\Verta\VertaServiceProvider::class;   
+Hekmatinasser\Verta\VertaServiceProvider::class;
 Hekmatinasser\Verta\Verta::class;
+
 use Hekmatinasser\Verta\Verta;
 use Carbon\Carbon;
 
@@ -56,10 +57,6 @@ if (isset($_POST['ok'])) {
 if (!isset($_COOKIE["type"])) {
     header("location:login.php");
 }
-
-
-
-
 ?>
 
 <!doctype html>
@@ -160,5 +157,5 @@ if (!isset($_COOKIE["type"])) {
             </div>
         </div>
     </section>
-    
+
 </body>

@@ -71,7 +71,7 @@ endforeach;
         <div class="container">
             <div class="col-md-4">
                 <h5 style="text-align: center">تبدیل تومان به بیت کوین</h5>
-                <form method="GET" action="crypto.php">
+                <form method="GET" action="cryptocurrency.php">
                 <input style="width: 100%; border: 1px solid black;box-shadow: 3px 3px 3px gray; border-radius: 5px" type="text" name="toman" placeholder="مقدار پول خود را به تومان وارد کنید">
                 <br><br>
                 <input style="width: 100%" class="btn btn-primary" type="submit" name="change" value="تبدیل">
