@@ -12,7 +12,7 @@ $re_password = $_POST["repassword"];
 if ($_POST["submit"]) {
     if ($password !== $re_password) {
         header( "refresh:3;url=../forget-password.php" );
-       echo "you must be enter equal password and repassword";
+        echo "you must be enter equal password and repassword";
     }
     else{
         $register_data = select_field_register("register", "email", $email);

@@ -59,6 +59,7 @@ include "functions.php";
 							</li>
 							<li class="nav-item"><a class="nav-link" href="<?= get_url("contact.php"); ?>">Contact</a></li>
 							<li class="nav-item active"><a class="nav-link" href="<?= get_url("cryptocurrency.php"); ?>">CryptoCurrency-Price</a></li>
+							<li class="nav-item active"><a class="nav-link" href="<?= get_url("videos.php"); ?>">Videos</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?= get_url("register.php"); ?>">
 									<button class="btn btn-danger">register</button>
 								</a></li>

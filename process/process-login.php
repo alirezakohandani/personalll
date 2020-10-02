@@ -37,7 +37,7 @@ if(isset($_POST["login"]))
    {
     if(md5($_POST["password"]) == $row["password"]) {
     setcookie("type", $_POST['username'], time()+3600, "/");
-    header("location:../panel.php");
+    header("location:../ela-admin-rtl");
     }
     else
     {

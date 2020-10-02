@@ -1,10 +1,38 @@
 <link rel="stylesheet" href="css/bootstrap.css">
-      
-<?php
 
+<?php
+include "connect.php";
 $url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,REP,DASH,XRP,EOS,NEO,LTC,NMC,PPC,DOGE,GRC,&tsyms=USD,EUR";
 $result = file_get_contents($url);
 $r = json_decode($result);
+$crypto_names = ["BTC", "ETH", "REP", "DASH", "XRP", "EOS", "NEO", "LTC", "NMC", "PPC", "DOGE", "GRC"];
+foreach($crypto_names as $name) {
+    
+    $crypto_price[] = $r->$name->USD;
+    
+}
+
+ $sql = "INSERT INTO price (price_btc,price_eth,price_rep,price_dash,price_xrp,price_eos,price_neo,price_ltc,price_nmc,price_ppc,price_doge,price_grc) 
+ VALUES('$crypto_price[0]','$crypto_price[1]','$crypto_price[2]','$crypto_price[3]','$crypto_price[4]','$crypto_price[5]','$crypto_price[6]','$crypto_price[7]','$crypto_price[8]','$crypto_price[9]','$crypto_price[10]', '$crypto_price[11]')";
+ if ($con->query($sql)) {
+     
+      echo "ok insert";
+   
+       }
+      else{
+     echo "comment not insert";
+            }
+                  $pdo = null;
+
+   $query = "SELECT * FROM price ORDER BY id_price DESC LIMIT 2";
+   $statement = $con->prepare($query);
+   
+   $statement->execute();
+      
+   $results = $statement->fetchAll();
+
+
+   
 
 ?>
 <section>
@@ -17,54 +45,56 @@ $r = json_decode($result);
     </div>
 </section>
 <section>
-<div class="row">
-<div class="container">
-<div class="col-md-12">
-<table style="width: 100%" class="table table-striped table-dark">
-<thead style="text-align: center" class="thead-dark">
-<tr>
-<th style="color: gray" scope="col">row</th>
-<!-- <th style="color: gray" scope="col">image</th> -->
-<th style="color: gray" scope="col">name</th>
-<th style="color: gray" scope="col">price USD</th>
-<th style="color: gray" scope="col">price EUR</th>
-<th style="color: gray" scope="col">تومان (یک واحد) </th>
-</tr>
-</thead>
+    <div class="row">
+        <div class="container">
+            <div class="col-md-12">
+                <table style="width: 100%" class="table table-striped table-dark">
+                    <thead style="text-align: center" class="thead-dark">
+                        <tr>
+                            <th style="color: gray" scope="col">row</th>
+                            <!-- <th style="color: gray" scope="col">image</th> -->
+                            <th style="color: gray" scope="col">name</th>
+                            <th style="color: gray" scope="col">price USD</th>
+                            <th style="color: gray" scope="col">state</th>
+                            <th style="color: gray" scope="col">price EUR</th>
+                            <th style="color: gray" scope="col">تومان (یک واحد) </th>
+                        </tr>
+                    </thead>
 
-<?php 
+                    <?php
 
-foreach($r as $key => $value):?>
-<tbody>
-<tr>
-<td style="text-align: center" scope="row">
-<?php 
+                    foreach ($r as $key => $value): ?>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center" scope="row">
+                                    <?php
 
-$a[] = $key;
-echo sizeof($a);
+                                    $a[] = $key;
+                                    echo sizeof($a);
 
-?></td>
-<!-- <td ><img style="width: 30px; height: 30px;display: block; margin-left: auto; margin-right: auto; " src="img/bitcoin1.png"></td> -->
-<td style="text-align: center"><?php echo $key; ?></td>
-<td style="text-align: center; font-weight: bold; color: green"><?= $value->USD; ?></td>
-<td style="text-align: center; font-weight: bold; color: green"><?= $value->EUR; ?></td>
-<td style="text-align: center; font-weight: bold; color: green"><?= number_format($value->USD * 24200); ?></td>
+                                    ?></td>
+                                    <?php 
+                                   
+                                    ?>
+                                <!-- <td ><img style="width: 30px; height: 30px;display: block; margin-left: auto; margin-right: auto; " src="img/bitcoin1.png"></td> -->
+                                <td style="text-align: center"><?php echo $key; ?></td>
+                                <td style="text-align: center; font-weight: bold; color: gray"><?php echo $value->USD;?></td>
+                                <td style="text-align: center;"></td>
+                                <td style="text-align: center; font-weight: bold; color: green"><?= $value->EUR; ?></td>
+                                <td style="text-align: center; font-weight: bold; color: green"><?= number_format($value->USD * 30000); ?></td>
 
-    </tr>
-</tbody>
-<?php
+                            </tr>
+                        </tbody>
+                    <?php
 
-
-
-endforeach;
-
-
-
-?>
-</table>
-</div>
-</div>
-</div>
+                    endforeach;
+                 
+              
+                    ?>
+                </table>
+            </div>
+        </div>
+    </div>
 </section>
 <section>
     <div class="row">
@@ -72,9 +102,9 @@ endforeach;
             <div class="col-md-4">
                 <h5 style="text-align: center">تبدیل تومان به بیت کوین</h5>
                 <form method="GET" action="cryptocurrency.php">
-                <input style="width: 100%; border: 1px solid black;box-shadow: 3px 3px 3px gray; border-radius: 5px" type="text" name="toman" placeholder="مقدار پول خود را به تومان وارد کنید">
-                <br><br>
-                <input style="width: 100%" class="btn btn-primary" type="submit" name="change" value="تبدیل">
+                    <input style="width: 100%; border: 1px solid black;box-shadow: 3px 3px 3px gray; border-radius: 5px" type="text" name="toman" placeholder="مقدار پول خود را به تومان وارد کنید">
+                    <br><br>
+                    <input style="width: 100%" class="btn btn-primary" type="submit" name="change" value="تبدیل">
                 </form>
                 <?php
                 $url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD,EUR";
@@ -82,20 +112,13 @@ endforeach;
                 $r = json_decode($result);
                 if (isset($_GET["change"])) {
                     $toman =  $_GET["toman"];
-                foreach ($r as $key => $value) {
-                   
-                    $calculate = $toman / ($value->USD * 16200);
-                    echo "<p style='text-align: center'>$calculate" . " BTC</p>";
+                    foreach ($r as $key => $value) {
+                        $calculate = $toman / ($value->USD * 27500);
+                        echo "<p style='text-align: center'>$calculate" . " BTC</p>";
+                    }
                 }
-                }
-               
                 ?>
-            </div> 
+            </div>
         </div>
     </div>
 </section>
-
-
-
-
-

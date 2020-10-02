@@ -1,5 +1,10 @@
 
-
+<?php
+if(isset($_COOKIE["type"]))
+{
+ header("location:ela-admin-rtl");
+}
+?>
 <html lang="en">
     <head>
         <!-- Required meta tags -->

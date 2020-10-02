@@ -42,6 +42,7 @@
 				</div>
             </div>
         </section>
+		
         <!--================End Home Banner Area =================-->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
