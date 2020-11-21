@@ -1,54 +1,52 @@
 <?php
- session_start();
-
+session_start();
 $username = $_POST["username"]; 
 $password = $_POST["password"];
-$pass_hash = md5($_POST["password"]);
+$pass_hash = md5($password);
 
 include '../connect.php';
+include '../globals/functions.php';
 
 if(isset($_COOKIE["type"]))
 {
- header("location:../panel.php");
+ header("location:../ela-admin-rtl");
 }
-
-$message = '';
 
 if(isset($_POST["login"]))
 {
  if(empty($username) && empty($password))
  {
-  $message = "<div class='alert alert-danger'>Both Fields are required</div>";
+    echo "<div class='alert alert-danger'>Both Fields are required</div>";
+    die();
  }
- else
- {
-  $query = "SELECT * FROM register WHERE username = :username";
-  $statement = $con->prepare($query);
-  $statement->execute(
-   array(
-    'username' => $_POST["username"]
-   )
-  );
-  $count = $statement->rowCount();
-  if($count > 0)
-  {
-  $result = $statement->fetchAll();
-   foreach($result as $row)
-   {
-    if(md5($_POST["password"]) == $row["password"]) {
-    setcookie("type", $_POST['username'], time()+3600, "/");
-    header("location:../ela-admin-rtl");
+  
+    $query = "SELECT * FROM register WHERE username = :username";
+    $statement = $con->prepare($query);
+    $statement->execute(
+     array(
+      'username' => $_POST["username"]
+     )
+    );
+    
+    $count = $statement->rowCount();
+    $result = $statement->fetchAll();
+
+    //check username exists
+    if ($count == 0) {
+     echo "username not found";
+     die();
     }
-    else
-    {
-        echo "username or password wrong";
-    }
-   }
-  }
-  else
-  {
-    echo "username or password is wrong";
-}
+
+     foreach($result as $row)
+     {
+      if($username == $row["username"] && $pass_hash == $row["password"]) {
+      setcookie("type", $username, time()+3600, "/");
+      header("location:../ela-admin-rtl");
+      }
+      else
+      {
+          echo "username or password wrong";
+      }
+     }
  }
-}
 ?>

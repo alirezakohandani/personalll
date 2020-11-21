@@ -1,8 +1,13 @@
+<?php
+if (!isset($_COOKIE["type"])) {
+    header("location:../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/download.png">
     <title>LaraCMS</title>
     <link href="css/lib/bootstrap/bootstrap-rtl.min.css" rel="stylesheet">
     <link href="css/helper.css" rel="stylesheet">
@@ -128,6 +133,7 @@
                             <input type="text" class="form-control" placeholder="Search here"> <a class="srh-btn"><i
                                 class="ti-close"></i></a></form>
                     </li>
+                   
                     <!-- Comment -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-muted text-muted  " href="#" data-toggle="dropdown"
@@ -318,6 +324,11 @@
                             <li><a href="table-datatable.html">کاربران</a></li>
                         </ul>
                     </li>
+                    <form method="POST">
+                    <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cog"></i><span
+                        class="hide-menu">خروج</span></a>
+                   
+                </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

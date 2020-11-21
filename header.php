@@ -1,5 +1,5 @@
 <?php
-include "functions.php";
+include "globals/functions.php";
 ?>
 <!doctype html>
 <html lang="en">

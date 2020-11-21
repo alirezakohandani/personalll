@@ -6,7 +6,7 @@ function get_url($uri = '') {
 
 //
 function select_field_register($table_name,$field, $email) {
-   include 'connect.php';
+   include '../connect.php';
    $query = "SELECT * FROM $table_name WHERE $field = :email";
    $statement = $con->prepare($query);
    $statement->execute(
@@ -21,7 +21,7 @@ function select_field_register($table_name,$field, $email) {
 
 //update password (Forget password)
 function update_password_register($table_name, $password,$id_register) {
-    include 'connect.php';
+    include '../connect.php';
     $password_hash = md5($password);
     $sql = "UPDATE $table_name SET password='$password_hash'  WHERE id='$id_register'";
     $stmt = $con->prepare($sql);
@@ -33,4 +33,12 @@ function update_password_register($table_name, $password,$id_register) {
    else {
        echo "not change password";
    }
+}
+
+function select_field($field, $table) {
+    include '../connect.php';
+    $sth = $con->prepare("SELECT $field FROM $table");
+    $sth->execute();
+    $result = $sth->fetchAll();
+    return $result;
 }

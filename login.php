@@ -4,6 +4,7 @@ if(isset($_COOKIE["type"]))
 {
  header("location:ela-admin-rtl");
 }
+
 ?>
 <html lang="en">
     <head>
@@ -42,6 +43,9 @@ if(isset($_COOKIE["type"]))
             <label class="register-color">Password:</label>
             <input type="password" class="form-control register-border" placeholder="please enter your password..." id="password" name="password"><br>
             </div>
+            
+    
+         
             
             <input style="width: 100%" type="submit" class="btn btn-primary" value="Login" name="login">
         </form>

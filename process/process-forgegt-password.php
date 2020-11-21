@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Redirect;
 
 include '../connect.php';
-include '../functions.php';
+include '../globals/functions.php';
 
 $email = $_POST["email"];
 $password = $_POST["password"];

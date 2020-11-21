@@ -11,7 +11,7 @@
 					<div class="banner_content">
 						<div class="media">
 							<div class="d-flex">
-								<img src="img/download.png" style="width: 638px; height: 690px" alt="">
+								<img src="images/download.png" style="width: 638px; height: 690px" alt="">
 							</div>
 							<div class="media-body">
 								<div class="personal_text">
