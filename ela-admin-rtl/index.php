@@ -265,7 +265,7 @@ if (!isset($_COOKIE["type"])) {
                             <ul class="dropdown-user">
                                 <li><a href="#"><i class="ti-user"></i> پروفایل کاربری</a></li>
                                 <li><a href="#"><i class="ti-settings"></i> تننظیمات</a></li>
-                                <li><a href="#"><i class="fa fa-power-off"></i> خروج</a></li>
+                                <li><a href="logout.php"><i class="fa fa-power-off"></i> خروج</a></li>
                             </ul>
                         </div>
                     </li>
@@ -324,9 +324,8 @@ if (!isset($_COOKIE["type"])) {
                             <li><a href="table-datatable.html">کاربران</a></li>
                         </ul>
                     </li>
-                    <form method="POST">
-                    <li><a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cog"></i><span
-                        class="hide-menu">خروج</span></a>
+           
+                   
                    
                 </li>
                 </ul>
@@ -388,6 +387,7 @@ if (!isset($_COOKIE["type"])) {
                     </div>
                 </div>
             </div>
+           
             <!-- /# row -->
             <!-- End PAge Content -->
         </div>
