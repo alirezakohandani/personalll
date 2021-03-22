@@ -1,9 +1,16 @@
 {
+    "name": "alirezakohandani/micro-framework",
+    "authors": [
+        {
+            "name": "alirezakohandani",
+            "email": "alireza.ko73@gmail.com"
+        }
+    ],
     "require": {
-        "hekmatinasser/verta": "^1.10",
-        "mpdf/mpdf": "^8.0",
-        "dompdf/dompdf": "^0.8.5",
-        "phpmailer/phpmailer": "^6.1",
-        "kavenegar/php": "^1.2"
+        "hekmatinasser/verta": "^1.11",
+        "catfan/medoo": "^1.7"
+    },
+    "autoload": {
+        "psr-4": { "App\\": "App/" }
     }
 }

@@ -1,2 +1,0 @@
-# ela-admin-rtl
-
