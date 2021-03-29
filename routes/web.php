@@ -9,7 +9,7 @@ return array(
 
     '/articles' => [
         'method' => 'get',
-        'target' => 'HomeController@index',
+        'target' => 'ArticleController@index',
         'middleware' => ''
     ],
 
