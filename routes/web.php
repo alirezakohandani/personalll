@@ -6,12 +6,20 @@ return array(
         'target' => 'HomeController@index',
         'middleware' => ''
     ],
+
+    '/articles' => [
+        'method' => 'get',
+        'target' => 'HomeController@index',
+        'middleware' => ''
+    ],
+
     '/auth/login' => [
         'method' => 'get|post',
         'target' => 'AuthController@login',
         'middleware' => 'IEBlocker'
        
     ],
+
     '/auth/register' => [
         'method' => 'get|post',
         'target' => 'AuthController@register'
