@@ -5,9 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>MeetMe Personal</title>
+        <title>Alireza Kohn's personal website</title>
         <!-- Bootstrap CSS -->
-    
+
         <link rel="stylesheet" href="<?= asset('css/bootstrap.css') ?>">
         <link rel="stylesheet" href="<?= asset('vendors/linericon/style.css') ?>">
         <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="<?= asset('css/responsive.css') ?>">
     </head>
     <body>
-        
+
         <!--================Header Menu Area =================-->
         <header class="header_area">
             <div class="main_menu">
@@ -33,16 +33,15 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
-								<li class="nav-item"><a class="nav-link" href="about-us.html">CRYPTOCURRENCY-PRICE</a></li> 
+								<li class="nav-item"><a class="nav-link" href="crypto/price">CRYPTOCURRENCY-PRICE</a></li>
 							</ul>
-						</div> 
+						</div>
 					</div>
             	</nav>
             </div>
         </header>
         <!--================Header Menu Area =================-->
-        
+
         <!--================Home Banner Area =================-->
         <section class="home_banner_area">
            	<div class="container box_1620">
@@ -50,16 +49,16 @@
 					<div class="banner_content">
 						<div class="media">
 							<div class="d-flex">
-								<img src="<?= asset('img/personal.jpeg') ?>" style="width: 638px; height: 690px" alt="">
+								<img src="<?= asset('img/Personal3.JPG') ?>" style="width: 638px; height: 690px" alt="">
 							</div>
 							<div class="media-body">
 								<div class="personal_text">
 									<h6>Hello Everybody, i am</h6>
 									<h3>Alireza Kohandani</h3>
 									<h4>Software engineer</h4>
-									<p>Experienced Web Developer with a demonstrated history of working in the computer software industry. Skilled in PHP, WordPress, jQuery, Bootstrap, and Cascading Style Sheets (CSS).</p>
+									<p>Experienced Web Developer with a demonstrated history of working in the computer software industry. Skilled in PHP, Laravel and database.</p>
 									<ul class="list basic_info">
-										<li><a href="#"><i class="lnr lnr-calendar-full"></i> 27st July, 1994</a></li>
+										<li><a href="#"><i class="lnr lnr-calendar-full"></i> Born on July 27, 1994</a></li>
 										<li><a href="#"><i class="lnr lnr-phone-handset"></i>0912-9750492</a></li>
 										<li><a href="#"><i class="lnr lnr-envelope"></i> info@alirezakohandani.ir</a></li>
 										<li><a href="#"><i class="lnr lnr-home"></i> Tehran, Iran</a></li>
@@ -80,7 +79,7 @@
             </div>
         </section>
         <!--================End Home Banner Area =================-->
-            
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="<?= asset('js/jquery-3.3.1.min.js') ?>"></script>

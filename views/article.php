@@ -5,9 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>MeetMe Personal</title>
+        <title>Alireza Kohn's personal website</title>
         <!-- Bootstrap CSS -->
-    
+
         <link rel="stylesheet" href="<?= asset('css/bootstrap.css') ?>">
         <link rel="stylesheet" href="<?= asset('vendors/linericon/style.css') ?>">
         <link rel="stylesheet" href="<?= asset('css/font-awesome.min.css') ?>">
@@ -27,7 +27,7 @@
     </div>
     <div class="list-group">
   <?php
-  foreach($articles as $k => $v): 
+  foreach($articles as $k => $v):
     $v = explode('@', $v);
   ?>
 
